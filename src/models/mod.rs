@@ -77,6 +77,8 @@ pub enum Currency {
     EURR,
     #[serde(alias = "matic")]
     MATIC,
+    #[serde(alias = "paxg")]
+    PAXG,
     #[serde(alias = "sol")]
     SOL,
     #[serde(alias = "steth")]
@@ -87,6 +89,8 @@ pub enum Currency {
     USDC,
     #[serde(alias = "usdt")]
     USDT,
+    #[serde(alias = "usyc")]
+    USYC,
     #[serde(alias = "xrp")]
     XRP,
 }

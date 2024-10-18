@@ -52,7 +52,7 @@ pub enum GetPositionsResponse {
         leverage: i64,
         maintenance_margin: f64,
         mark_price: f64,
-        open_orders_margin: f64,
+        open_orders_margin: Option<f64>,
         realized_funding: Option<f64>,
         realized_profit_loss: f64,
         settlement_price: f64,
