@@ -16,7 +16,7 @@ travis-ci = {repository = "dovahcrow/deribit-rs", branch = "master"}
 [dependencies]
 anyhow = "1"
 chrono = "0.4"
-derive_builder = "0.12"
+derive_builder = "0.20"
 fehler = "1"
 futures = {version = "0.3", features = ["async-await"]}
 lazy_static = "1"
@@ -29,13 +29,13 @@ serde_json = "1"
 shrinkwraprs = "0.3"
 thiserror = "1"
 tokio = {version = "1", features = ["time", "macros", "rt", "net"]}
-tokio-tungstenite = {features = ["rustls-tls-native-roots"], version = "0.18"}
-tungstenite = {version = "0.18", features = ["rustls-tls-native-roots"], default-features = false}
+tokio-tungstenite = {features = ["rustls-tls-native-roots"], version = "0.24"}
+tungstenite = {version = "0.24", features = ["rustls-tls-native-roots"], default-features = false}
 url = "2"
 
 [dev-dependencies]
 dotenv = "0.15.0"
-env_logger = "0.10"
+env_logger = "0.11"
 
 [dev-dependencies.tokio]
 features = ["time", "macros", "rt-multi-thread", "net"]

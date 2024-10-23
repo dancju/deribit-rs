@@ -25,8 +25,7 @@ use regex::Regex;
 use std::{collections::HashMap, time::Duration};
 use tokio::{net::TcpStream, time::timeout};
 use tokio_tungstenite::{connect_async, MaybeTlsStream, WebSocketStream};
-use tungstenite::Message;
-use url::Url;
+use tungstenite::{client::IntoClientRequest, Message};
 
 lazy_static! {
     static ref RE: Regex = Regex::new(r#""jsonrpc":"2.0","id":(\d+),"#).unwrap();
@@ -61,7 +60,7 @@ impl Deribit {
     pub async fn connect(self) -> (DeribitAPIClient, DeribitSubscriptionClient) {
         let ws_url = if self.testnet { WS_URL_TESTNET } else { WS_URL };
         info!("Connecting");
-        let (ws, _) = connect_async(Url::parse(ws_url)?).await?;
+        let (ws, _) = connect_async(ws_url.into_client_request()?).await?;
 
         let (wstx, wsrx) = ws.split();
 
